@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/theme_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Тема:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/theme_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/theme_options"
+        app:layout_constraintStart_toEndOf="@id/theme_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/theme_label" />
+
+    <TextView
+        android:id="@+id/support_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Режим поддержки:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/theme_spinner"
+        android:layout_marginTop="12dp" />
+
+    <Switch
+        android:id="@+id/support_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Выкл"
+        android:textOn="Вкл"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        app:layout_constraintBaseline_toBaselineOf="@id/support_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/score_system_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Система баллов:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/support_switch"
+        android:layout_marginTop="12dp" />
+
+    <Spinner
+        android:id="@+id/score_system_spinner"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/score_system_options"
+        app:layout_constraintStart_toEndOf="@id/score_system_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/score_system_label" />
+
+    <TextView
+        android:id="@+id/show_date_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Показывать дату:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/score_system_spinner"
+        android:layout_marginTop="12dp" />
+
+    <Switch
+        android:id="@+id/show_date_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Выкл"
+        android:textOn="Вкл"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        app:layout_constraintBaseline_toBaselineOf="@id/show_date_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp" />
+
+    <TextView
+        android:id="@+id/show_errors_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Показывать ошибки:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/show_date_switch"
+        android:layout_marginTop="12dp"
+        />
+
+    <Switch
+        android:id="@+id/show_errors_switch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textOff="Выкл"
+        android:textOn="Вкл"
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        app:layout_constraintBaseline_toBaselineOf="@id/show_errors_label"
+        app:layout_constraintEnd_toEndOf="parent" />
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Подтвердить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
