@@ -59,11 +59,13 @@ public class MainActivity extends AppCompatActivity {
                                 System.out.println("Home is called");
                                 break;
                             case R.id.nav_profile:
-                                System.out.println("Info is called");
+//                                System.out.println("Info is called");
+                                startActivity(new Intent(MainActivity.this, ActivityInfo.class));
+                                finish();
                                 break;
                             case R.id.nav_settings:
-//                                startActivity(new Intent(MainActivity.this, ActivitySettings.class));
-                                System.out.println("Settings is called");
+                                startActivity(new Intent(MainActivity.this, ActivitySettings.class));
+                                finish();
                                 break;
                         }
                         // Close the navigation drawer when an item is clicked

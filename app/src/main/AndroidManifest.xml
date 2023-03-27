@@ -21,9 +21,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ActivitySettings">
-
-        </activity>
+        <activity android:name=".ActivitySettings"
+            android:label="@string/activity_info_settings" />
+        <activity android:name=".ActivityInfo"
+            android:label="@string/activity_info_label" />
     </application>
 
 </manifest>

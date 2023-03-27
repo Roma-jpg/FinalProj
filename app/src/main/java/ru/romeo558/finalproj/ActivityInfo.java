@@ -3,6 +3,7 @@ package ru.romeo558.finalproj;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -15,16 +16,15 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.Objects;
-//import android.support.v7.app.AppCompatActivity;
 
-public class ActivitySettings extends AppCompatActivity {
+public class ActivityInfo extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings); // Replace with your own layout
+        setContentView(R.layout.activity_info); // Replace with your own layout
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.navigation_view);
@@ -38,15 +38,15 @@ public class ActivitySettings extends AppCompatActivity {
                         // Handle navigation item clicks here
                         switch (item.getItemId()) {
                             case R.id.nav_home:
-                                startActivity(new Intent(ActivitySettings.this, MainActivity.class));
+                                startActivity(new Intent(ActivityInfo.this, MainActivity.class));
                                 finish();
                                 break;
                             case R.id.nav_profile:
-                                startActivity(new Intent(ActivitySettings.this, ActivityInfo.class));
-                                finish();
+                                System.out.println("Settings is called.");
                                 break;
                             case R.id.nav_settings:
-                                System.out.println("Settings is called");
+                                startActivity(new Intent(ActivityInfo.this, ActivitySettings.class));
+                                finish();
                                 break;
                         }
                         // Close the navigation drawer when an item is clicked
@@ -89,4 +89,9 @@ public class ActivitySettings extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.drawer_menu, menu);
+//        return true;
+//    }
 }
