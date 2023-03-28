@@ -91,7 +91,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
         // Create some sample list items
         List<MyListItem> items = new ArrayList<>();
         items.add(new MyListItem("Русский язык", "Упражнение 666", "4"));
