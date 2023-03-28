@@ -4,7 +4,9 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,8 +16,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,17 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private MyListAdapter myListAdapter;
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            // Open the navigation drawer when the hamburger icon is clicked
-            drawerLayout.openDrawer(GravityCompat.START);
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
 
     @Override
@@ -98,5 +94,25 @@ public class MainActivity extends AppCompatActivity {
         myListAdapter = new MyListAdapter(this, R.layout.row_my_list_item, items);
         myListView = findViewById(R.id.myListView);
         myListView.setAdapter(myListAdapter);
+
+        TextView titleTextView = findViewById(R.id.student_name);
+        titleTextView.setText("РОМАН");
+
+        Button dateButton = findViewById(R.id.date_button);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy", Locale.getDefault());
+        String currentDate = dateFormat.format(new Date());
+        dateButton.setText(currentDate);
+    }
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        if (item.getItemId() == R.id.close_menu) { // replace 'close_menu' with the ID of your close button in the menu xml file
+//            drawerLayout.closeDrawer(GravityCompat.START); // closes the menu
+//            return true;
+//        } else
+            if (item.getItemId() == android.R.id.home) {
+            drawerLayout.openDrawer(GravityCompat.START); // opens the menu
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
